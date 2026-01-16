@@ -20,7 +20,7 @@ class PredictPipeline:
             data_scaled = preprocessor.transform(features)
             preds = model.predict(data_scaled)
             
-            logging.info("predicted")
+            logging.info("Predicted")
             return preds
 
         except Exception as e:
