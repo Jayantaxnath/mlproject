@@ -7,14 +7,13 @@ from sklearn.preprocessing import StandardScaler
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 application = Flask(__name__)
-app = application
 
-@app.route("/")
+@application.route("/")
 def index():
     return render_template("index.html")
 
 
-@app.route("/predictdata", methods=["GET", "POST"])
+@application.route("/predictdata", methods=["GET", "POST"])
 def predict_datapoint():
     if request.method == "GET":
         return render_template("home.html")
@@ -39,4 +38,4 @@ def predict_datapoint():
 if __name__ == "__main__":
     print("Running at http://127.0.0.1:5000/")
     print("Endpoints at http://127.0.0.1:5000/predictdata")
-    app.run()
+    application.run()
